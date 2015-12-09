@@ -1,0 +1,21 @@
+dciss_my_app_blog:
+    resource: "@dcissMyAppBlogBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/MyApp
+
+mohamed_my_app:
+    resource: "@mohamedMyAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+etudoctrine:
+    resource: "@etudoctrineBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_blog:
+    resource: "@AcmeBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

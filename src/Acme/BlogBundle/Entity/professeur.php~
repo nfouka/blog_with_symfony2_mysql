@@ -1,0 +1,99 @@
+<?php
+
+namespace Acme\BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * professeur
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Acme\BlogBundle\Entity\professeurRepository")
+ */
+class professeur
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+
+
+    /**
+
+     * @ORM\OneToOne(targetEntity="Acme\BlogBundle\Entity\matiere", cascade={"persist"})
+
+     */
+
+    private $matiere;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return professeur
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set matiere
+     *
+     * @param \Acme\BlogBundle\Entity\matiere $matiere
+     *
+     * @return professeur
+     */
+    public function setMatiere(\Acme\BlogBundle\Entity\matiere $matiere = null)
+    {
+        $this->matiere = $matiere;
+
+        return $this;
+    }
+
+    /**
+     * Get matiere
+     *
+     * @return \Acme\BlogBundle\Entity\matiere
+     */
+    public function getMatiere()
+    {
+        return $this->matiere;
+    }
+}

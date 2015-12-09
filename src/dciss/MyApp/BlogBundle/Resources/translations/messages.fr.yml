@@ -1,0 +1,28 @@
+project: 1ère Application avec Symfony2 
+
+
+Hello: Bonjour %name% !
+Bye: 'Au revoir'
+Nevermind: "On s'en fout"
+site.name: Mon site
+
+article:
+  list: List des articles
+  empty: Pas (encore !) d'articles disponibles
+  donnee:
+      # les éléments de liste sont précédés d'un tiret en YAML
+      - >
+          Le Site du Zéro recueille des informations (login, e-mail) lors de
+          votre enregistrement en tant que membre du site. Lors de votre
+          connexion au site, un fichier "log" stocke les actions effectuées
+          par votre ordinateur (via son adresse IP) au serveur.
+      - |
+          Lorsque que vous vous connectez en tant que membre du Site du Zéro et
+          que vous cochez la case correspondante, un cookie est envoyé à votre
+          ordinateur afin qu'il se souvienne de votre login et de votre mot de
+          passe. Ceci vous est proposé uniquement afin d'automatiser la
+          procédure de connexion, et n'est en aucun cas utilisé par Simple IT à
+          d'autres fins.
+      - Merci de votre attention.
+  nombre: "Il y a %count% article|]1,+Inf]Il y a %count% articles"
+  

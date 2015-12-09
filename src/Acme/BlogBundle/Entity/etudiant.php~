@@ -1,0 +1,220 @@
+<?php
+
+namespace Acme\BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Sdz\BlogBundle\Entity\Article
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Acme\BlogBundle\Entity\etudiantRepository")
+ * @ORM\HasLifecycleCallbacks()
+ *
+ * @UniqueEntity(fields="titre", message="Un article existe déjà avec ce titre.")
+ */
+
+
+class etudiant
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="age", type="string", length=255)
+     */
+    private $age;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adress", type="string", length=255)
+     */
+    private $adresse;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Acme\BlogBundle\Entity\professeur")
+     */
+
+    private $professeur ;
+
+
+    /** ONE-TO-MANY BIDIRECTIONAL, INVERSE SIDE
+     * @var Collection
+     * @ORM\OneToMany(targetEntity="Acme\BlogBundle\Entity\matiere",mappedBy="etudiant")
+     */
+    
+
+    private $matiere ;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return etudiant
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set age
+     *
+     * @param string $age
+     *
+     * @return etudiant
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * Get age
+     *
+     * @return string
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+    
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return etudiant
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+
+    /**
+     * Set professeur
+     *
+     * @param \Acme\BlogBundle\Entity\professeur $professeur
+     *
+     * @return etudiant
+     */
+    public function setProfesseur(\Acme\BlogBundle\Entity\professeur $professeur = null)
+    {
+        $this->professeur = $professeur;
+
+        return $this;
+    }
+
+    /**
+     * Get professeur
+     *
+     * @return \Acme\BlogBundle\Entity\professeur
+     */
+    public function getProfesseur()
+    {
+        return $this->professeur;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->matiere = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add matiere
+     *
+     * @param \Acme\BlogBundle\Entity\matiere $matiere
+     *
+     * @return etudiant
+     */
+    public function addMatiere(\Acme\BlogBundle\Entity\matiere $matiere)
+    {
+        $this->matiere[] = $matiere;
+
+        return $this;
+    }
+
+    /**
+     * Remove matiere
+     *
+     * @param \Acme\BlogBundle\Entity\matiere $matiere
+     */
+    public function removeMatiere(\Acme\BlogBundle\Entity\matiere $matiere)
+    {
+        $this->matiere->removeElement($matiere);
+    }
+
+    /**
+     * Get matiere
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMatiere()
+    {
+        return $this->matiere;
+    }
+}

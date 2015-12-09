@@ -1,0 +1,6 @@
+project: First App With Sf2
+
+Hello: Hello %name%!
+Bye: 'Au revoir'
+Nevermind: "On s'en fout"
+site.name: My site

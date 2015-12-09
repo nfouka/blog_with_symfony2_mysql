@@ -1,0 +1,3 @@
+mohamed_my_app_homepage:
+    path:     /insert
+    defaults: { _controller: mohamedMyAppBundle:Default:page }

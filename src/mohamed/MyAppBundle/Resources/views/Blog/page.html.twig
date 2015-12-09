@@ -1,0 +1,8 @@
+<h1>tout les étudiant inséeres</h1>
+
+
+{% for s in all %}
+    <li> {{ s.id }} </li>
+       <li> {{ s.nom }} </li>
+       <li> {{ s.adresse }} </li>
+{% endfor %}

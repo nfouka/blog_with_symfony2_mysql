@@ -1,0 +1,33 @@
+{% extends "::layout.html.twig" %}
+{% block dciss_body %}
+<h1>The Last Post(s) : </h1>
+<div class="count">
+    Total :<strong>{{ pagination.getTotalItemCount }}</strong>
+</div>
+
+{% for all_posts in pagination %}
+  <div class="post-preview">
+                    <a href="post.html">
+                        <h2 class="post-title">
+                           {{ all_posts.title}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                           {{ all_posts.subtitle}}
+                        </h3>
+                        
+                        <h3 class="post-subtitle">
+                           {{ all_posts.subject}}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted by <a href="#">Nadir Fouka</a>
+                    	{{ all_posts.date |date('Y-m-d H:m:s')}}
+                    </p>
+    </div>
+{% endfor %}
+<div class="pagination" style="width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;">
+    {{ knp_pagination_render(pagination) }}
+</div>
+{% endblock %}

@@ -1,0 +1,3 @@
+etudoctrine_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: etudoctrineBundle:Default:index }

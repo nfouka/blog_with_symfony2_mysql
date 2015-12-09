@@ -1,0 +1,6 @@
+sdzblog_accueil:
+    path:      /{page}/{format}
+    defaults:  { _controller: AcmeBlogBundle:Default:index, page: 1, format: xml }
+    requirements:
+        page: \d*
+        format: xml|json

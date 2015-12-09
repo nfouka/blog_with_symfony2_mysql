@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /home/nfouka/Bureau/2.7/app/config/routing_dev.yml
