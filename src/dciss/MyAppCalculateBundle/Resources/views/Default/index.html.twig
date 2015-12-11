@@ -1,0 +1,34 @@
+{% extends "::layout.html.twig" %}
+{% block dciss_body %}
+ <div id="bloc_page">
+            <header>
+                <div id="titre_principal">
+                    <img src="images/david.jpg" alt="Logo de david joao" id="logo" />
+                    <h1>Calculatrice</h1>
+                </div>
+    <div style="text-align:center;">
+ 
+     <form name="formulaire" method="post" action="{{ path('dciss_my_app_calculate_homepage') }}">
+            <p>nombre1:<input name="nombre1" type="text" ></p>
+            <p>nombre2:<input name="nombre2" type="text" ></p>
+ 
+    <select name="choix">
+        <option value="addition">+</option>
+        <option value="soustraction">-</option>
+        <option value="division">/</option>
+        <option value="multiplication">*</option>
+    </select>
+  
+        <input type="submit" value="calculer">
+        <a href="#" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-trash"></span> delete</a>
+ 
+        </form>
+</div>
+
+{% if result is defined %}
+    	le résult est <strong>{{ result }}
+{% endif %}
+
+<div id="view"></div>
+
+{% endblock %}

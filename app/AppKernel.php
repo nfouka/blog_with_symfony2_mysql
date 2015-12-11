@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new mohamed\MyAppBundle\mohamedMyAppBundle(),
             new dciss\MyApp\BlogBundle\dcissMyAppBlogBundle(),
+            new dciss\MyAppCalculateBundle\dcissMyAppCalculateBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
